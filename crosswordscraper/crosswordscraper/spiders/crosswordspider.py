@@ -1,29 +1,15 @@
-import scrapy
 from crosswordscraper.items import AnswerItem, QuestionItem, AnswerQuestion
+from scrapy_redis.spiders import RedisSpider
 
 
-class CrosswordspiderSpider(scrapy.Spider):
+class CrosswordspiderSpider(RedisSpider):
     name = "crosswordspider"
-    allowed_domains = ["www.kreuzwort-raetsel.net"]
-    start_urls = ["https://www.kreuzwort-raetsel.net/uebersicht.html"]
+
+    redis_key = "quotes_queue:start_urls"
+    redis_batch_size = 0
+    max_idle_time = 7
 
     def parse(self, response):
-        letters = response.css(".dnrg li")
-
-        for letter_url in letters:
-            url = letter_url.css("a::attr('href')").get()
-
-            yield response.follow(url, callback=self.parse_letter_page)
-
-    def parse_letter_page(self, response):
-        questions = response.css(".dnrg li")
-
-        for questions_url in questions:
-            url = questions_url.css("a::attr('href')").get()
-
-            yield response.follow(url, callback=self.parse_questions_page)
-
-    def parse_questions_page(self, response):
         questions_data = response.css("tr")
 
         for question_data in questions_data:
