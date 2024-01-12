@@ -12,27 +12,37 @@ Script for parsing data from a crossword website into a database
 
    Use the following command to create a virtual environment:
 
-   python -m venv venv
+```
+    python -m venv venv
+```
 
-   If you are using Python version 3.3 or older, use virtualenv instead of venv:
+If you are using Python version 3.3 or older, use virtualenv instead of venv:
 
+```
    virtualenv venv
+```
 
 3. Activate the virtual environment:
 
    On the Windows command line:
 
+```
    source venv\Scripts\activate
+```
 
-   In a Unix terminal:
+In a Unix terminal:
 
+```
    source venv/bin/activate
+```
 
-   You will see that your command line now starts with (venv).
+You will see that your command line now starts with (venv).
 
 4. Install dependencies from the requirements.txt file:
 
+```
    pip install -r requirements.txt
+```
 
 5. Create mysql and redis databases
 
@@ -42,11 +52,16 @@ Script for parsing data from a crossword website into a database
 
 7. Go to your project's Spiders folder:
 
+```
    cd crosswordscraper/crosswordscraper/spiders
+```
 
 8. Run these scripts:
 
+```
    scrapy crawl redisurlsspider
-   scrapy crawl crosswordspider
 
-   Now you can check your data in the MySQL database.
+   scrapy crawl crosswordspider
+```
+
+Now you can check your data in the MySQL database.
