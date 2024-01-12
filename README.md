@@ -10,13 +10,13 @@ Script for parsing data from a crossword website into a database
 
 2. Create a virtual environment (venv):
 
-Use the following command to create a virtual environment:
+   Use the following command to create a virtual environment:
 
-python -m venv venv
+   python -m venv venv
 
-If you are using Python version 3.3 or older, use virtualenv instead of venv:
+   If you are using Python version 3.3 or older, use virtualenv instead of venv:
 
-virtualenv venv
+   virtualenv venv
 
 3. Activate the virtual environment:
 
