@@ -8,6 +8,10 @@
 from itemadapter import ItemAdapter
 import mysql.connector
 from crosswordscraper.items import AnswerItem, QuestionItem, AnswerQuestion
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 class CrosswordscraperPipeline:
@@ -18,7 +22,10 @@ class CrosswordscraperPipeline:
 class SaveToMySQLPipeLine:
     def __init__(self):
         self.conn = mysql.connector.connect(
-            host="127.0.0.1", user="root", password="", database="crossword"
+            host=f"{os.getenv('MYSQL_HOST')}",
+            user=f"{os.getenv('MYSQL_USER')}",
+            password=f"{os.getenv('MYSQL_PASSWORD')}",
+            database=f"{os.getenv('MYSQL_DATABASE')}",
         )
 
         self.cur = self.conn.cursor()
