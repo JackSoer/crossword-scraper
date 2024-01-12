@@ -20,33 +20,33 @@ virtualenv venv
 
 3. Activate the virtual environment:
 
-On the Windows command line:
+   On the Windows command line:
 
-source venv\Scripts\activate
+   source venv\Scripts\activate
 
-In a Unix terminal:
+   In a Unix terminal:
 
-source venv/bin/activate
+   source venv/bin/activate
 
-You will see that your command line now starts with (venv).
+   You will see that your command line now starts with (venv).
 
-3. Install dependencies from the requirements.txt file:
+4. Install dependencies from the requirements.txt file:
 
-pip install -r requirements.txt
+   pip install -r requirements.txt
 
-4. Create mysql and redis databases
+5. Create mysql and redis databases
 
-5. Create a .env file in your project root folder.
+6. Create a .env file in your project root folder.
 
-Copy the variables from the .env.example file there and write down the data for connections to your mysql and redis databases.
+   Copy the variables from the .env.example file there and write down the data for connections to your mysql and redis databases.
 
-6. Go to your project's Spiders folder:
+7. Go to your project's Spiders folder:
 
-cd crosswordscraper/crosswordscraper/spiders
+   cd crosswordscraper/crosswordscraper/spiders
 
-7. Run these scripts:
+8. Run these scripts:
 
-scrapy crawl redisurlsspider
-scrapy crawl crosswordspider
+   scrapy crawl redisurlsspider
+   scrapy crawl crosswordspider
 
-Now you can check your data in the MySQL database.
+   Now you can check your data in the MySQL database.
